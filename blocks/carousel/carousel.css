@@ -27,6 +27,28 @@
 .carousel-navigation-wrapper .carousel-actions {
 	margin-right: 0;
 }
+
+.carousel-indicators {
+	margin-bottom: 5px;
+}
+
+.carousel-indicators button {
+	background: gray;
+	padding: 0;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	margin: 0 4px;
+}
+
+.carousel-actions button {
+	background: transparent;
+	color: black;
+	font-size: 18px;
+	padding: 0;
+	margin: 0 4px;
+}
+
 .carousel-wrapper .carousel .carousel-item {
 	flex-shrink: 0;
 	flex-basis: 100%;

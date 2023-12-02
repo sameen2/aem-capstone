@@ -6,7 +6,7 @@ const initializeSlides = (slides) => {
 };
 
 const gotoNextSlide = (slides) => (event) => {
-	if (currentSlide === [...slides].length) {
+	if (currentSlide === slides.length - 1) {
 		currentSlide = 0;
 	} else {
 		currentSlide++;
@@ -33,4 +33,13 @@ const gotoPrevSlide = (slides) => (event) => {
 	});
 };
 
-export { initializeSlides, gotoNextSlide, gotoPrevSlide };
+const gotoSlide = (slides, gotoIndex) => (event) => {
+	currentSlide = gotoIndex;
+	slides.forEach((slide, slideIndex) => {
+		slide.style.transform = `translateX(${
+			100 * (slideIndex - currentSlide)
+		}%)`;
+	});
+};
+
+export { initializeSlides, gotoNextSlide, gotoPrevSlide, gotoSlide };

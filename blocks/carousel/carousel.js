@@ -1,7 +1,8 @@
 import {
-	initializeSlides,
+	gotoSlide,
 	gotoNextSlide,
 	gotoPrevSlide,
+	initializeSlides,
 } from "./carousel-indicators.js";
 
 export default async function decorate(block) {
@@ -15,7 +16,6 @@ export default async function decorate(block) {
 	carouselNavigationWrapper.appendChild(carouselIndicators);
 	carouselNavigationWrapper.appendChild(carouselActions);
 	[...block.children].forEach((carouselItem, itemIndex) => {
-		console.log("Carousel Item :: ", carouselItem);
 		const imageDiv = document.createElement("div");
 		const contentDiv = document.createElement("div");
 		const containerDiv = document.createElement("div");
@@ -36,9 +36,7 @@ export default async function decorate(block) {
 		}
 		const paragraphs = carouselItem.children?.[1].querySelectorAll("p");
 		if (paragraphs.length) {
-			paragraphs.forEach((p, index) => {
-				contentDiv.appendChild(p);
-			});
+			paragraphs.forEach((p) => contentDiv.appendChild(p));
 		}
 		containerDiv.appendChild(contentDiv);
 		containerDiv.appendChild(imageDiv);
@@ -49,12 +47,19 @@ export default async function decorate(block) {
 	block.parentElement.appendChild(carouselNavigationWrapper);
 	const prevButton = document.createElement("button");
 	prevButton.ariaLabel = "Previous slide";
+	prevButton.className = "previous-slide";
+	prevButton.innerHTML = "&larr;";
 	const nextButton = document.createElement("button");
 	nextButton.ariaLabel = "Next slide";
+	nextButton.className = "next-slide";
+	nextButton.innerHTML = "&rarr;";
 	carouselActions.appendChild(prevButton);
 	carouselActions.appendChild(nextButton);
 	const slides = block.querySelectorAll(".carousel-item");
 	initializeSlides(slides);
 	prevButton.addEventListener("click", gotoPrevSlide(slides));
 	nextButton.addEventListener("click", gotoNextSlide(slides));
+	carouselIndicators.querySelectorAll("button")?.forEach((button, index) => {
+		button.addEventListener("click", gotoSlide(slides, index));
+	});
 }
