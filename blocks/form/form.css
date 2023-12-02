@@ -1,0 +1,93 @@
+.form {
+	width: 600px;
+}
+
+.form input {
+	border-color: gray;
+}
+
+.form input:hover {
+	border-color: violet;
+}
+
+.form input[type="checkbox"] {
+	width: auto;
+	display: initial;
+	width: 24px;
+	height: 24px;
+	padding: 0;
+	margin: 0;
+	margin-right: 8px;
+}
+
+.form label {
+	display: flex;
+	cursor: pointer;
+	align-items: center;
+}
+
+.form select {
+	width: 100%;
+	padding: 8px;
+	color: inherit;
+	font-size: 20px;
+	border-radius: 4px;
+	margin-bottom: 1rem;
+	background: transparent;
+}
+
+.form textarea {
+	padding: 2px 4px;
+	font-size: 12px;
+	min-height: 100px;
+	border-radius: 4px;
+	background: transparent;
+	width: calc(100% - 4px);
+}
+
+.form .error {
+	border: 2px solid red;
+}
+
+.form .loader-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 3;
+	background-color: rgba(133, 133, 133, 0.2);
+
+	display: none;
+	align-items: center;
+	justify-content: center;
+}
+
+.form .loader {
+	width: 16px;
+	aspect-ratio: 1;
+	background: #3fb8af;
+	position: relative;
+	animation: l5-0 2s infinite linear;
+}
+.form .loader:before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: #ff3d7f;
+	transform: translate(30px) rotate(0);
+	animation: l5-1 0.5s infinite;
+}
+.form .loader-wrapper.show {
+	display: flex;
+}
+@keyframes l5-0 {
+	100% {
+		transform: rotate(1turn);
+	}
+}
+@keyframes l5-1 {
+	100% {
+		transform: translate(30px) rotate(0.25turn);
+	}
+}
