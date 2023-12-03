@@ -1,14 +1,16 @@
 footer {
-  padding: 2rem;
-  background-color: var(--overlay-background-color);
-  font-size: var(--body-font-size-s);
+	padding: 1rem 0 1.5rem;
+	margin-top: 3rem;
+	background-color: #202020;
+	color: #ebebeb;
+	font-size: var(--body-font-size-s);
 }
 
 footer .footer {
-  max-width: 1200px;
-  margin: auto;
+	max-width: 1200px;
+	margin: auto;
 }
 
 footer .footer p {
-  margin: 0;
+	margin: 0;
 }
