@@ -13,8 +13,6 @@ export default async function decorate(block) {
 	carouselActions.className = "carousel-actions";
 	carouselIndicators.className = "carousel-indicators";
 	carouselNavigationWrapper.className = "carousel-navigation-wrapper";
-	carouselNavigationWrapper.appendChild(carouselIndicators);
-	carouselNavigationWrapper.appendChild(carouselActions);
 	[...block.children].forEach((carouselItem, itemIndex) => {
 		const imageDiv = document.createElement("div");
 		const contentDiv = document.createElement("div");
@@ -56,6 +54,10 @@ export default async function decorate(block) {
 	carouselActions.appendChild(prevButton);
 	carouselActions.appendChild(nextButton);
 	const slides = block.querySelectorAll(".carousel-item");
+	if (slides.length > 1) {
+		carouselNavigationWrapper.appendChild(carouselIndicators);
+		carouselNavigationWrapper.appendChild(carouselActions);
+	}
 	initializeSlides(slides);
 	prevButton.addEventListener("click", gotoPrevSlide(slides));
 	nextButton.addEventListener("click", gotoNextSlide(slides));
