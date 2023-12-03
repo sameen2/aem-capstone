@@ -17,7 +17,7 @@ export default async function decorate(block) {
 		const imageDiv = document.createElement("div");
 		const contentDiv = document.createElement("div");
 		const containerDiv = document.createElement("div");
-		containerDiv.className = "carousel-item";
+		containerDiv.className = `carousel-item item${itemIndex}`;
 		imageDiv.className = "carousel-item--image";
 		contentDiv.className = "carousel-item--content";
 		const picture = carouselItem.querySelector("picture");
@@ -32,7 +32,7 @@ export default async function decorate(block) {
 			indicatorButton.dataset.itemIndex = itemIndex;
 			carouselIndicators.appendChild(indicatorButton);
 		}
-		const paragraphs = carouselItem.children?.[1].querySelectorAll("p");
+		const paragraphs = carouselItem.children?.[1]?.querySelectorAll("p");
 		if (paragraphs.length) {
 			paragraphs.forEach((p) => contentDiv.appendChild(p));
 		}
