@@ -51,3 +51,17 @@
 	border-radius: 0;
 	font-weight: 500;
 }
+
+.section.cards-container .default-content-wrapper > h2 {
+	font-size: 36px;
+	margin-top: 27px;
+	font-weight: normal;
+	margin-bottom: 13.5px;
+}
+.section.cards-container .default-content-wrapper > h2::after {
+	border-bottom: 2px solid #ffea00;
+	content: "";
+	display: block;
+	padding-top: 8px;
+	width: 84px;
+}
