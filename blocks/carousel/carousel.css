@@ -78,3 +78,18 @@
 .carousel-item--content p {
 	margin: 0;
 }
+
+.section.carousel-container .default-content-wrapper > h2 {
+	font-size: 36px;
+	margin-top: 27px;
+	font-weight: normal;
+	margin-bottom: 13.5px;
+}
+
+.section.carousel-container .default-content-wrapper > h2::after {
+	border-bottom: 2px solid #ffea00;
+	content: "";
+	display: block;
+	padding-top: 8px;
+	width: 84px;
+}
