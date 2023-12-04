@@ -262,9 +262,13 @@ main .section {
 	padding: 64px 16px;
 }
 
+main .section:empty {
+	display: none;
+}
+
 @media (min-width: 600px) {
 	main .section {
-		padding: 64px 32px;
+		padding: 32px;
 	}
 }
 

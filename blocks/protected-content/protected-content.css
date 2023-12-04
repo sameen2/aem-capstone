@@ -1,0 +1,74 @@
+.section.protected-content-container .default-content-wrapper > h2 {
+	font-size: 36px;
+	font-weight: normal;
+	margin-bottom: 13.5px;
+	margin-top: 27px;
+}
+
+.section.protected-content-container .default-content-wrapper > h2::after {
+	border-bottom: 2px solid #ffea00;
+	content: "";
+	display: block;
+	padding-top: 8px;
+	width: 84px;
+}
+
+.section.protected-content-container .default-content-wrapper > p:last-child {
+	font-size: 18px;
+	font-weight: normal;
+	margin-bottom: 13.5px;
+	margin-top: 27px;
+	padding-bottom: 50px;
+	border-bottom: 1px solid #ebebeb;
+}
+
+.protected-content-wrapper .protected-content {
+	display: flex;
+}
+
+.protected-content .protected-container--wrapper {
+	flex-basis: 33.33%;
+	padding: 0 16px;
+}
+
+.protected-content .protected-container--wrapper::before {
+	content: "\01F512";
+	padding: 24pt;
+	font-size: 24px;
+	background: linear-gradient(
+		to top left,
+		hsla(0, 0%, 100%, 0) 0,
+		hsla(0, 0%, 100%, 0) 50%,
+		#ffea00 50%,
+		#ffea00 100%
+	);
+	position: relative;
+	top: 49px;
+	z-index: 2;
+}
+
+.protected-content .protected-content--item {
+	opacity: 0.65;
+}
+
+.protected-content .protected-content--item h2 {
+	font-size: 18px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.protected-content .protected-content--item p:first-of-type {
+	font-size: 14px;
+	line-height: 1.75;
+	color: dimgray;
+	text-transform: uppercase;
+}
+
+.protected-content .protected-content--item p:last-of-type {
+	background-color: #ebebeb;
+	color: dimgray;
+	font-size: 14px;
+	padding: 0.5em 1em;
+	text-transform: uppercase;
+	display: inline-block;
+}
