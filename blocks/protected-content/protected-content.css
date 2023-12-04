@@ -33,7 +33,7 @@
 
 .protected-content .protected-container--wrapper::before {
 	content: "\01F512";
-	padding: 24pt;
+	padding: 18pt;
 	font-size: 24px;
 	background: linear-gradient(
 		to top left,
