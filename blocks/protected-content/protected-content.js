@@ -1,5 +1,10 @@
 export default async function decorate(block) {
 	const fragment = new DocumentFragment();
+	try {
+		const result = await fetch("/jsonData.json?sheet=guides");
+		const response = await result.json();
+		console.log("result :: ", response);
+	} catch {}
 	[...block.children].forEach((content) => {
 		const parent = document.createElement("div");
 		parent.className = "protected-content--item";
