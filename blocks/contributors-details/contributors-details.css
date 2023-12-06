@@ -27,7 +27,50 @@
 	margin: 8px;
 	font-size: 14px;
 	font-weight: 500;
+	font-family: inherit;
 	text-transform: uppercase;
+}
+
+.contributor .social-share {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: "Wkndicons";
+	margin: 8px 0;
+}
+
+.social-share a:any-link {
+	font-family: inherit;
+	text-decoration: none;
+}
+
+.social-share .icon {
+	width: 48px;
+	height: 48px;
+	color: #ebebeb;
+	background: #202020;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.social-share .icon::before {
+	position: relative;
+	font-size: 30px;
+}
+
+.social-share .icon.facebook-icon::before {
+	content: "\e808";
+	color: #ebebeb;
+}
+.social-share .icon.twitter-icon::before {
+	content: "\e812";
+	color: #ebebeb;
+}
+.social-share .icon.instagram-icon::before {
+	content: "\e809";
+	color: #ebebeb;
 }
 
 .section.contributors-details-container .default-content-wrapper > h1,
@@ -43,7 +86,7 @@
 }
 
 .section.contributors-details-container .default-content-wrapper > h2::after {
-	border-bottom: 2px solid var(--brandPrimary, #ffea00);
+	border-bottom: 2px solid #ffea00;
 	content: "";
 	display: block;
 	padding-top: 8px;

@@ -1,35 +1,48 @@
-let currentSlide = 0;
-
-const slideSlides = (slides) => {
-	slides.forEach((slide, slideIndex) => {
-		const xValue = (slideIndex - currentSlide) * 100;
-		slide.style.transform = `translateX(${xValue}%)`;
-	});
+const carousel = {
+	element: null,
+	currentSlide: 0,
 };
 
-const initializeSlides = slideSlides;
-
-const gotoNextSlide = (slides) => (event) => {
-	if (currentSlide === slides.length - 1) {
-		currentSlide = 0;
-	} else {
-		currentSlide++;
+const slide = () => {
+	if (carousel.element) {
+		const translatedValue = carousel.currentSlide * 100 * -1;
+		carousel.element.style.transform = `translateX(${translatedValue}%)`;
 	}
-	slideSlides(slides);
 };
 
-const gotoPrevSlide = (slides) => (event) => {
-	if (currentSlide === 0) {
-		currentSlide = slides.length - 1;
-	} else {
-		currentSlide--;
+const initializeSlides = (id) => {
+	if (id) {
+		const element = document.querySelector(`#${id}`);
+		if (element) {
+			carousel.element = element;
+			carousel.slides = element.querySelectorAll(".carousel-item").length;
+		}
 	}
-	slideSlides(slides);
 };
 
-const gotoSlide = (slides, gotoIndex) => (event) => {
-	currentSlide = gotoIndex;
-	slideSlides(slides);
+const gotoNextSlide = (event) => {
+	if (carousel.currentSlide === carousel.slides - 1) {
+		carousel.currentSlide = 0;
+	} else {
+		carousel.currentSlide++;
+	}
+	slide();
+};
+
+const gotoPrevSlide = (event) => {
+	if (carousel.currentSlide === 0) {
+		carousel.currentSlide = carousel.slides - 1;
+	} else {
+		carousel.currentSlide--;
+	}
+	slide();
+};
+
+const gotoSlide = (event) => {
+	if (event.target.dataset.itemIndex) {
+		carousel.currentSlide = event.target.dataset.itemIndex;
+		slide();
+	}
 };
 
 export { initializeSlides, gotoNextSlide, gotoPrevSlide, gotoSlide };

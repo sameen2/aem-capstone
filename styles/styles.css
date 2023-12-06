@@ -20,10 +20,10 @@
 	--text-color: #000;
 
 	/* fonts */
-	--body-font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial,
+	--body-font-family: "sourcesanspro", "Helvetica Neue", Helvetica, Arial,
 		sans-serif;
 	--heading-font-family: var(--body-font-family);
-	--fixed-font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial,
+	--fixed-font-family: "sourcesanspro", "Helvetica Neue", Helvetica, Arial,
 		sans-serif;
 
 	/* body sizes */

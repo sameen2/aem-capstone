@@ -7,6 +7,10 @@ import {
 
 export default async function decorate(block) {
 	const fragment = new DocumentFragment();
+	const carouselId = `carousel-${new Date().getTime()}`;
+	document
+		.querySelector(".carousel-wrapper .carousel")
+		?.setAttribute("id", carouselId);
 	const carouselActions = document.createElement("div");
 	const carouselIndicators = document.createElement("div");
 	const carouselNavigationWrapper = document.createElement("div");
@@ -30,6 +34,7 @@ export default async function decorate(block) {
 			const indicatorButton = document.createElement("button");
 			indicatorButton.ariaLabel = carouselHeading.textContent;
 			indicatorButton.dataset.itemIndex = itemIndex;
+			indicatorButton.addEventListener("click", gotoSlide);
 			carouselIndicators.appendChild(indicatorButton);
 		}
 		const paragraphs = carouselItem.children?.[1]?.querySelectorAll("p");
@@ -53,15 +58,11 @@ export default async function decorate(block) {
 	nextButton.innerHTML = "&rarr;";
 	carouselActions.appendChild(prevButton);
 	carouselActions.appendChild(nextButton);
-	const slides = block.querySelectorAll(".carousel-item");
-	if (slides.length > 1) {
+	if (block.querySelectorAll(".carousel-item").length > 1) {
 		carouselNavigationWrapper.appendChild(carouselIndicators);
 		carouselNavigationWrapper.appendChild(carouselActions);
 	}
-	initializeSlides(slides);
-	prevButton.addEventListener("click", gotoPrevSlide(slides));
-	nextButton.addEventListener("click", gotoNextSlide(slides));
-	carouselIndicators.querySelectorAll("button")?.forEach((button, index) => {
-		button.addEventListener("click", gotoSlide(slides, index));
-	});
+	prevButton.addEventListener("click", gotoPrevSlide);
+	nextButton.addEventListener("click", gotoNextSlide);
+	initializeSlides(carouselId);
 }
